@@ -2,7 +2,7 @@
 content management'''
 from django.contrib import admin
 '''import the existing configs for an admin user'''
-from django.contrib.auth import UserAdmin
+from django.contrib.auth.admin import UserAdmin
 '''import the custom user schema/ custom users table'''
 from .models import User
 # Register your models here.
