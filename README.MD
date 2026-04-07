@@ -40,3 +40,10 @@
 
 ### Test the project 
 python manage.py runserver
+
+### ADMIN CONFIGURATION 
+- Set up administrative credentials 
+python manage.py createsuperuser 
+- give username,email and password combo 
+- access admin by going to the route /admin
+http://127.0.0.1:8000/admin
