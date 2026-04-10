@@ -8,5 +8,5 @@ class MediaAssetAdmin(admin.ModelAdmin):
     list_filter = ('category','is_public','created_at')
     search_fields = ('title','description','uploaded_by__username')
     '''admin can only view read only fields can never edit'''
-    readonly_fields = ('created_by','updated_at','views_count')
+    # readonly_fields = ('created_by','updated_at','views_count')
     data_hierarchy = 'created_at' # data ordering 

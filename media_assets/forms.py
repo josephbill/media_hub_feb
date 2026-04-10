@@ -11,14 +11,14 @@ class MediaAssetForm(forms.ModelForm):
             'title' : forms.TextInput(attrs={
                 'class' : 'form-control'
             }),
-            'description' : forms.TextArea(attrs={
+            'description' : forms.Textarea(attrs={
                 'class' : 'form-control',
                 'rows' : 3
             }),
             'category' : forms.Select(attrs={
                 'class' : 'form-control'
-            })
+            }),
             'is_public' : forms.CheckboxInput(attrs={
                 'class' : 'form-check-input'
-            })
+            }),
         }
