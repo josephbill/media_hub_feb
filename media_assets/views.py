@@ -16,7 +16,7 @@ from .forms import MediaAssetForm
 def dashboard_view(request):
     '''main dashboard: show all public media assets '''
     # capture all assets from media assets db table that are public
-    media_list = MediaAssets.object.filter(is_public=True)
+    media_list = MediaAssets.objects.filter(is_public=True)
     # get data from a form using the name attribute 
     # this power a search functionality for my users to be able to 
     # filter the media assets 
@@ -41,7 +41,7 @@ def dashboard_view(request):
 @login_required
 def my_media_view(request):
     '''user own media assets'''
-    media_list = MediaAssets.object.filter(uploaded_by=request.user)
+    media_list = MediaAssets.objects.filter(uploaded_by=request.user)
     # pagination
     paginator = Paginator(media_list,12)
     page_number = request.GET.get('page')
@@ -55,12 +55,13 @@ def my_media_view(request):
 def upload_view(request):
     if request.method == "POST":
         form = MediaAssetForm(request.POST, request.FILES)
-        if form.valid():
+        if form.is_valid():
             media = form.save(commit=False) # delayed post 
             media.uploaded_by = request.user # tagging user to post
             media.save()
             messages.success(request,'Media Uploaded Successfully!')
-            return redirect('media_assets::my_media')
+           # return redirect('media_assets:my_media')
+            return redirect('media_assets:dashboard')
     else:
         form = MediaAssetForm()
     return render(request,'media_assets/upload_media.html',{
