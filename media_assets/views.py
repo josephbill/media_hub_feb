@@ -128,7 +128,7 @@ def delete_media_view(request,pk):
     if not media.can_delete(request.user):
         messages.error(request,"You cannot delete media")
         return redirect('media_assets:dashboard')
-    if request.method == 'PPOST':
+    if request.method == 'POST':
         media.delete() # delete from db 
         messages.success(request,"Deleted Successfully")
         return redirect('media_assets:my_media')
