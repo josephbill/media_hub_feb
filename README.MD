@@ -47,3 +47,11 @@ python manage.py createsuperuser
 - give username,email and password combo 
 - access admin by going to the route /admin
 http://127.0.0.1:8000/admin
+
+### MPESA INTEGRATION 
+- Daraja API sandbox : create an account here : 
+https://developer.safaricom.co.ke/
+- Create an app in above portal - get development keys 
+- Django processes : sample media app
+1. Create mediampesa app 
+2. Models , templates , admin , forms
